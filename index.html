@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Channel 8 Weather</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="main.js"></script>
+    <script src="./keys/api-keys.js"></script>
+    <script id="search-js" defer src="https://api.mapbox.com/search-js/v1.0.0-beta.16/web.js"></script>
+    <script>
+        const accessToken = mapbox_key;
+        const script = document.getElementById('search-js');
+        script.onload = function () {
+            mapboxsearch.autofill({
+                accessToken
+            });
+        };
+    </script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"
+            integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="scroll-content">
+    <div class="navbar">
+        <!--    insert logo here-->
+        <a href="index.html">
+            <img src="./img/final-logo.svg" alt="channel-logo" class="image">
+        </a>
+        <div class="search-container">
+            <mapbox-search-box
+                    id="search-box-api"
+                    access-token='pk.eyJ1IjoiYnJpdHRuZXliOTUiLCJhIjoiY2xpNjljN2E4MGFsNzNncWhvOThzMXV3OCJ9.LZQZFaVWU6tZ2slomuKxJQ'
+                    proximity="0,0"
+            >
+            </mapbox-search-box>
+        </div>
+        <button id="search-button" class="search-button" onclick="getUserInput()">Search</button>
+    </div>
+    <!--    link bar under the navbar-->
+    <div class="link-bar">
+        <h2 class="inner-text" id="location-name"></h2>
+    </div>
+    <div class="glass-container">
+        <div class="main-column">
+            <div class="glass-rectangle-alpha1" id="weather-background">
+                <div class="top-container">
+                    <p id="temp" class="now-weather"></p>
+                    <p id="cloudy-or-not" class="time-text"></p>
+                </div>
+                <div id="weather-info">
+
+                    <h2 id="time" class="time-text"></h2>
+                    <div class="inline-text">
+                        <p id="high-temp" class="weather-text"></p>
+                        <p id="low-temp" class="weather-text"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="glass-rectangle-alpha2">
+                <h2 id="real-feel" class="time-text"></h2>
+                <h2 id="wind-speed" class="time-text"></h2>
+                <h2 id="visibility" class="time-text"></h2>
+
+            </div>
+        </div>
+        <div class="right-side-column">
+            <div class="glass-rectangle-bravo" id="right-col-weather">
+                <div class="top-container-sunrise">
+                    <h2 class="inner-text" id="sunrise"> </h2>
+                </div>
+                <div class="bottom-container">
+                    <h2 class="inner-text" id="sunset"></h2>
+                </div>
+            </div>
+            <div class="glass-rectangle-charlie" id="humidity-background">
+                <div class="top-container-sunrise">
+                    <h2 class="inner-text" id="humidity"> </h2>
+                </div>
+                <div class="bottom-container">
+                    <h2 class="inner-text" id="pressure"></h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

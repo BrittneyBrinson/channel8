@@ -1,0 +1,2 @@
+const weather_key = "7fc245ea5113e2eac5202a6bc13b62a7";
+const mapbox_key = "pk.eyJ1IjoiYnJpdHRuZXliOTUiLCJhIjoiY2xpNjljN2E4MGFsNzNncWhvOThzMXV3OCJ9.LZQZFaVWU6tZ2slomuKxJQ";
